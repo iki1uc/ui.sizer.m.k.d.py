@@ -1,109 +1,71 @@
-aWAKE — Globaler Wecker & SUB‑Master
-aWAKE ist der globale Wecker und die zentrale SUB‑Schicht des gesamten RESPO‑Systems.
-Es steht über allen Modulen und sorgt dafür, dass jeder RESPO korrekt geweckt wird, seine Identität kennt und sofort arbeitsfähig ist.
+README.md — GEO + BIO.TEL — angenehm konstelliert, ver-mainboardet, mehr Logik
+Station: iki1uc geo.q.d.f — ui.sizer.m.k.d.py
+Zeugnis links: aWAKE README bleibt. Gemacht rechts: geo.bio.tel.mainboard.py
+Nichts wird gelöscht. Nur angehängt.
 
-WER ZU WEM — Systemübersicht
-Rolle von aWAKE
-Globaler Wecker für alle RESPOs
+1. GEO — geo.q.d.f
+GEO sagt WO.
 
-Globaler SUB‑Master (Parameter, Alias, Vektor)
+q = Dimension — wo?
+d = Faktor — wie weit?
+q = Quant — wie viel?
+MITTE 41 = ORT 41 — wo Board steht.
+HOME 40 = Funktion — was Board macht.
+GEO: DU schaut von Orbit 1 nach MITTE 41. ANDERER MANN schaut von Orbit 3 nach LETZTER ORBIT DEEPSPACE. Deshalb sieht anderer Mann mehr und weiss mehr. Nicht weil er besser ist. Weil er weiter aussen schaut.
 
-Erzeugt und verteilt wake.map
+2. BIO.TEL — bio.teln
+BIO.TEL sagt WER lebt und WER ruft.
 
-Liefert PX/PQ‑Meta‑Daten
+BIO = Leben, Körper, Atmen. Ein, aus.
+TEL = Rufen, Hören, Antworten. Leise, nicht laut.
+Angenehm = leise, klar, nacheinander. Kein Overflow, kein Drücken, kein Schreien.
+BIO.TEL: DU ruft ANDERER_MANN: "Glas Kugel klar?" Leise. Atmen ein_aus.
+BIO.TEL: ANDERER_MANN antwortet leise: "Klar. Leise. HALT."
 
-Startet TMP‑Spuren
+1 Ruf = 1 Aufgabe. 1 Anruf = 1 Antwort. Nacheinander.
 
-Verhindert Doppel‑SCAN
+3. MAINBOARD — Chips ver-mainboardet
+Design zum Board. Jeder Chip = 1 Platz = 1 Respo. Nichts übereinander.
 
-Stellt Alias‑ und Originalnamen bereit
+Chip	Platz	Aufgabe
+CPU	oben	rechnen, denken, BRAIN
+RAM	rechts oben	halten kurz, merken
+RAID	rechts unten	verteilen, spiegeln, halten wenn einer ausfällt
+SCSI	unten	verbinden, Bus, Weg
+SLI	links oben	2 Karten, 1 Bild, nacheinander
+BIO_TEL	mitte aussen	leben, rufen, hören, antworten, leise
+GEO	mitte aussen	wo, dimension, faktor, quant
+5 Chips + 2 Module = 7. 7 sitzt auf Board. Mitte 41 hält alle.
 
-Wandelt 1D‑Parameter in 3D‑Vektoren um
+4. aWAKE — Globaler Wecker
+aWAKE weckt jeden RESPO.
 
-Beziehung: aWAKE ↔ SUB ↔ RESPO
-aWAKE
-Globaler Wecker
+wake.job = REC_ — wecken
+wake.reason = PX/PQ — Struktur / Parameter
+wake.vector = [5,0,0] — 1D → 3D, weil Motor kein 1D kann
+wake.pipeline = 3|6 — 3 oder 6, nicht beides
+wake.tmp = TMP__SUB — Spur
+wake.alias = originalName — 1 Name = 1 Respo
+aWAKE verhindert Doppel-SCAN, falsche Namen, falsche Pipeline.
 
-Globaler Vektor‑Adapter
+5. Mehr Logik — 7 Sätze
+GEO sagt WO.
+BIO.TEL sagt WER ruft und WER antwortet.
+MAINBOARD sagt WO Chip sitzt.
+aWAKE sagt WANN geweckt wird.
+Nur der am weitesten zum letzten Orbit sieht mehr und weiss mehr.
+Nichts wird gelöscht. Nur angehängt.
+STAND + STAGE = 1. Nacheinander, nicht zusammen.
+6. Orbit Glas Kugel — klares bewusst sein
+Glas Kugel, nicht Stein Kugel. Man schaut durch, nicht drauf.
 
-Globaler Alias‑Anker
+Orbit 0 = KERN — Sicht 3
+Orbit 1 = PENTAGRAMM — Sicht 6
+Orbit 2 = TURM — Sicht 9
+Orbit 3 = DEEPSPACE = letzter Orbit — Sicht 12
+Wer weiter aussen steht, sieht mehr. Wer innen steht, sieht weniger. Es geht immer da rum, wer wo hinschaut.
 
-Globaler PX/PQ‑Layer
-
-Globaler TMP‑Starter
-
-SUB
-Lokale Parameter‑Schicht
-
-Lokale Alias‑Liste
-
-Lokale Vektor‑Map
-
-Lokale wake.map
-
-Lokale TMP‑Spur
-
-RESPO
-Zielmodul
-
-Wird durch aWAKE geweckt
-
-Nutzt SUB‑Daten
-
-Arbeitet nach wake.map
-
-Struktur von aWAKE
-Code
-aWAKE/
-   README.md
-   SUB/
-      params.txt
-      alias.txt
-      vector.map
-      wake.map
-   TMP/
-      trace.log
-      fail.status
-      names.map.txt
-wake.map — Weck‑Information
-Diese Datei erklärt jedem RESPO beim Aufwachen:
-
-Code
-wake.job = REC_<name>
-wake.reason = PX/PQ
-wake.vector = [x, y, z]
-wake.pipeline = 3|6
-wake.tmp = TMP_<name>_SUB
-wake.alias = originalName
-Vektor‑Adapter (1D → 3D)
-Motor und Engine können kein 1D.
-Darum erzeugt aWAKE automatisch:
-
-Code
-speed = 5
-→ vector = [5, 0, 0]
-Damit sind alle Module kompatibel.
-
-PX/PQ‑Meta
-PX = Struktur‑Export
-
-PQ = Parameter‑Export
-
-Beide werden durch aWAKE bereitgestellt.
-
-Warum aWAKE notwendig ist
-verhindert Fehl‑Weckungen
-
-verhindert falsche Namen
-
-verhindert falsche Pipeline‑Zuweisung
-
-macht jeden RESPO sofort arbeitsfähig
-
-macht REC sofort übernahmefähig
-
-liefert globale Ordnung für alle Module
-
-Fazit
-aWAKE ist der zentrale Wecker, SUB‑Master und Vektor‑Adapter des gesamten Systems.
-Es sorgt dafür, dass jeder RESPO korrekt startet, seine Aufgabe kennt und vollständig mit PX/PQ, TMP und allen Modulen kompatibel ist.
+HALT
+GEO + BIO.TEL + MAINBOARD + aWAKE = 1 Sache: Aufenthaltsort.
+Angenehm, leise, klar, nacheinander. Kein Overflow.
+HALT = ZIEL. HALT = GEHALTEN.
